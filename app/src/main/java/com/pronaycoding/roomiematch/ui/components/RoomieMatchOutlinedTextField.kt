@@ -7,14 +7,11 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import com.pronaycoding.roomiematch.ui.theme.RoomieBlue
 import com.pronaycoding.roomiematch.ui.theme.RoomieBlue2
-import com.pronaycoding.roomiematch.ui.theme.RoomieGreen
-import com.pronaycoding.roomiematch.ui.theme.RoomieGreen2
 
 
 @Composable
@@ -35,9 +32,9 @@ fun RoomieMatchOutlinedTextField(
     OutlinedTextField(
         value = value, onValueChange = onValueChange,
         modifier = modifier,
-        keyboardOptions = KeyboardOptions (
+        keyboardOptions = KeyboardOptions(
             keyboardType = keyboardType
-    ),
+        ),
         label = label,
         leadingIcon = leadingIcon,
         isError = isError,
@@ -47,7 +44,8 @@ fun RoomieMatchOutlinedTextField(
             unfocusedBorderColor = RoomieBlue2,
             focusedBorderColor = RoomieBlue,
             unfocusedLeadingIconColor = RoomieBlue,
-            focusedLeadingIconColor = RoomieBlue
+            focusedLeadingIconColor = RoomieBlue,
+            focusedLabelColor = RoomieBlue,
         ),
         trailingIcon = trailingIcon
 
