@@ -43,10 +43,21 @@ import com.pronaycoding.roomiematch.ui.components.RoomieMatchOutlinedTextField
 import com.pronaycoding.roomiematch.ui.theme.RoomieBlack
 import com.pronaycoding.roomiematch.ui.theme.RoomieBlue
 import com.pronaycoding.roomiematch.ui.theme.RoomieBlue2
+import com.pronaycoding.roomiematch.ui.theme.RoomieMatchTheme
 
 @Composable
 @Preview(showSystemUi = true)
-fun LoginScreen() {
+fun PreviewLoginScreen() {
+    RoomieMatchTheme {
+        LoginScreen {
+
+        }
+    }
+}
+@Composable
+fun LoginScreen(
+    gotoSignUpScreen : () -> Unit
+) {
     var email by rememberSaveable {
         mutableStateOf("")
     }
@@ -84,6 +95,7 @@ fun LoginScreen() {
             visualTransformation = PasswordVisualTransformation(),
         )
 
+
         Spacer(modifier = Modifier.height(8.dp))
 
         FilledTonalButton(
@@ -108,7 +120,13 @@ fun LoginScreen() {
             Text(text = "Login")
         }
 
-        Spacer(modifier = Modifier.height(16.dp))
+        TextButton(onClick = { /*TODO*/ },
+            modifier = Modifier.align(Alignment.End)
+        ) {
+            Text(text = "Forgot password?")
+        }
+
+        Spacer(modifier = Modifier.height(8.dp))
 
         Row(
             modifier = Modifier
@@ -161,10 +179,11 @@ fun LoginScreen() {
             horizontalArrangement = Arrangement.Center
         ) {
             Text(text = "Don't have an account?")
-            TextButton(onClick = { /*TODO*/ }) {
+            TextButton(onClick = { gotoSignUpScreen.invoke() }) {
                 Text(text = "Sign up")
             }
         }
+
 
     }
 }
